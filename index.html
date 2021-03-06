@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K0NT4KT3</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" href="images/id-card-3.svg">
+</head>
+<body>
+        <div class="create-contact-form-popup" id="popupForm">
+            <form class="form-container">
+                <div class="grid-wrapper">
+                    <img class="form-img" src="images/id-card-3 black.svg" alt="">
+                    <h2 class="form-header">Create New Contact</h2>
+
+                    <img class="name-icon" src="images/name.svg" alt="">
+                    <input class="surname-input" type="text" id="surname" placeholder="Surname" name="surname" required autocomplete="given-name">
+                    <input class="lastname-input" type="text" id="name" placeholder="Name" name="name" required autocomplete="family-name">
+
+                    <img class="phone-icon" src="images/phoneNumber.svg" alt="">
+                    <select class="phone-type-input" name="phoneNumberType" id="phoneNumberType">
+                        <option value="mobile">Mobile</option>
+                        <option value="work">Work</option>
+                        <option value="home">Home</option>
+                    </select>
+                    <input class="country-code-input" type="text" id="countryCode" placeholder="Country Code(+49)"
+                        name="countryCode" autocomplete="tel-country-code">
+                    <input class="phone-number-input" type="text" id="phoneNumber" placeholder="phone Number"
+                        name="phoneNumber" required autocomplete="tel-local">
+
+                    <img class="address-icon" src="images/address.svg" alt="">
+                    <select class="address-type-input" name="addressType" id="addressType">
+                        <option value="home">Home</option>
+                        <option value="work">Work</option>
+                    </select>
+                    <input class="street-name-input" type="text" id="streetName" placeholder="Street Name"
+                        name="streetName"  autocomplete="address-line1">
+                    <input class="house-number-input" type="text" id="houseNumber" placeholder="House Number"
+                        name="houseNumber" autocomplete="home" >
+                    <input class="zip-input" type="text" id="zip" placeholder="ZIP" name="zip" autocomplete="postal-code">
+                    <input class="city-input" type="text" id="city" placeholder="City" name="city" autocomplete="address-level2">
+                    <input class="country-input" type="text" id="country" placeholder="Country" name="country" autocomplete="country-name">
+
+                    <img class="email-icon" src="images/email.svg" alt="">
+                    <select class="email-type-input" name="emailType" id="emailType">
+                        <option value="private">Private</option>
+                        <option value="work">Work</option>
+                    </select>
+                    <input class="email-input" type="email" id="email" placeholder="Email" name="email" required autocomplete="email">
+
+                    <img class="bday-icon" src="images/bday.svg" alt="">
+                    <input class="bday-input" type="date" id="bday" placeholder="Birthday (dd.mm.yyyy)" name="bday" autocomplete="bday">
+
+                    <img class="note-icon" src="images/note.svg" alt="">
+                    <input class="note-input" type="text" id="note" placeholder="Contact Note" name="note">
+
+                    <button type="button" class="btn submit" value="Submit">Create</button>
+                    <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+                </div>
+
+            </form>
+    </div>
+    <div class="main-content">
+        <div class="header-container">
+            <img class="header-img" src="images/id-card-3.svg" alt="">
+            <h1 class="header">K0NT4KT3</h1>
+            <input class="search-bar" type="search" placeholder="Search...">
+            <select class="search-by-input">
+                <option value="all">All Results</option>
+                <option value="name">Names</option>
+                <option value="phoneNumber">Phone Numbers</option>
+                <option value="address">Addresses</option>
+                <option value="email">Emails</option>
+                <option value="bday">Birth Dates</option>
+                <option value="note">Notes</option>
+            </select>
+        </div>
+        <div class="sort-container">
+            <select class="sort-by-input">
+                <option value="timeStamp">Date Added</option>
+                <option value="firstName">Surname</option>
+                <option value="lastName">Name</option>
+            </select>
+            <select name="asc-desc" id="asc-desc" class="asc-desc">
+                <option value="desc">Newest -> Oldest</option>
+                <option value="asc">Oldest-Newest</option>
+            </select>
+            <button class="btn add-contact ">Add Contact</button>
+        </div>
+        <div class="cards-container">
+        </div>
+    </div>
+    <footer>
+        <div class="credit-footer">Icons made by <a target="_blank" href="https://www.flaticon.com/authors/smashicons"
+                title="Smashicons">Smashicons</a> <br> from <a target="_blank" href="https://www.flaticon.com/"
+                title="Flaticon">www.flaticon.com</a></div>
+    </footer>
+    <script src="scripts/Contact.js"></script>
+    <script src="scripts/testData.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>

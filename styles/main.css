@@ -1,0 +1,453 @@
+/* MARK: Colors used in CSS*/
+:root {
+    --darkblue: #0f4c75;
+    --light-gray: #e5eff5;
+    --dark-gray: #98a6bd;
+    --gray: #D8D8D8;
+    --off-white: #F5F5F5;
+    --white: #FFFFFF;
+}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* stop animations when rezising window*/
+.resize-animation-stopper * {
+    animation: none !important;
+    transition: none !important;
+  }
+/* MARK: HTML Elements CSS */
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    background-color: var(--gray);
+}
+a {
+    color: var(--darkblue);
+}
+h1 {
+    font-size: 30px;
+}
+::selection{
+    background: var(--darkblue);
+    color: #FFFFFF;
+}
+/* MARK: Class-specific css*/
+.main-content { /* wrapper for all elmenets except create/edit contact form*/
+    transition: 0.7s;
+    -moz-transition: 0.7s;
+    -webkit-transition: 0.7s;
+    -o-transition: 0.7s;
+    max-width: 100vw;
+}
+.blur { /* add blur class to main contact when editing/creating a contact */
+    -webkit-filter:  contrast(0);
+    -moz-filter:  contrast(0);
+    -ms-filter: contrast(0);
+    -o-filter:  contrast(0);
+    filter:  contrast(0);
+    pointer-events: none;
+    overflow: hidden;
+}
+/* MARK: Header related css*/
+.header-container {
+    display: grid;
+    background-color: var(--darkblue);
+    background: rgb(2,0,36);
+    background: linear-gradient(135deg, rgba(2,0,36,1) 0%, rgba(15,76,117,1) 35%, #4a4747 100%);
+    grid-template-areas: "header-img header header ."
+                         "search-bar search-bar search-by . ";
+    grid-template-columns: 0.5fr 1fr 0.5fr 0.25fr;
+    grid-gap: 10px;
+    height: 150px;
+    max-width: 100vw;
+}
+.header-img {
+    width: 50px;
+    height: 50px;
+    grid-area: header-img;
+    margin: auto;
+}
+.header {
+    color: var(--off-white);
+    grid-area: header;
+    margin: auto;
+}
+/* MARK: search-bar css*/
+.search-bar {
+    border: 1px solid var(--darkblue);
+    border-radius: 5px;
+    font-size: 16px;
+    grid-area: search-bar;
+    height: 40px;
+    margin-left: 20px;
+    outline: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.search-bar :focus {
+    background-color: var(--light-gray);
+}
+.search-by-input {
+    height: 40px;
+    grid-area: search-by;
+    outline: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.sort-container {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    margin: 10px auto 0 auto;
+}
+.sort-by-input {
+    height: 40px;
+    outline: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-right: 5px;
+}
+.asc-desc {
+    height: 40px;
+    width: 110px;
+    outline: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.add-contact {
+    height: 40px;
+    width: 80px;
+    grid-area: add-contact-btn;
+    margin: auto;
+    flex: 2;
+    margin-left: auto;
+    max-width: 200px;
+    margin-right: 5px;
+    
+}
+.add-contact:hover {
+    background-color: var(--off-white);
+    color: var(--darkblue);
+}
+/* MARK: Contacts Cards css */
+.cards-container {
+    display: grid;
+    margin: 10px auto;
+    grid-template-columns: 1fr;
+    width: 90%;
+    grid-gap: 10px;
+    font-size: 15px;
+    grid-auto-rows: auto;
+}
+.card-element {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--dark-gray);
+    border-radius: 1px;
+    background-color: var(--off-white);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    overflow: auto;
+    box-sizing: border-box;
+    transition: 0.4s ease-in-out;
+    -moz-transition: 0.4s ease-in-out;
+    -webkit-transition: 0.4s ease-in-out;
+    -o-transition: 0.4s ease-in-out;
+}
+.on-delete {
+    transform: scale(0.01);
+    -webkit-transform: scale(0.01);
+    -moz-transform: scale(0.01);
+    -ms-transform: scale(0.01);
+    -o-transform: scale(0.01);
+    opacity: 0;
+}
+.on-appear {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    opacity: 1;
+}
+.card-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: auto 15px;
+}
+.row-icon {
+    width: 30px;
+    height: 30px;
+    padding-right: 30px;
+}
+.delete-contact-button {
+    height: 30px;
+    width: 30px;
+    border: 0;
+    background-color: var(--off-white);
+    background-image: url(../images/trash.svg);
+    cursor: pointer;
+    outline: none;
+    transition: 0.2s;
+    -moz-transition: 0.2s;
+    -webkit-transition: 0.2s;
+    -o-transition: 0.2s ;
+}
+.delete-contact-button:hover {
+    background-image: url(../images/trash\ hover.svg);
+    transform: scale(1.3);
+    -webkit-transform: scale(1.3);
+    -moz-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    -o-transform: scale(1.3);
+}
+.edit-contact-button {
+    height: 30px;
+    width: 30px;
+    border: 0;
+    background-color: var(--off-white);
+    background-image: url(../images/edit.svg);
+    cursor: pointer;
+    outline: none;
+    transition: 0.2s;
+    -moz-transition: 0.2s ;
+    -webkit-transition: 0.2s ;
+    -o-transition: 0.2s ;
+}
+.edit-contact-button:hover {
+    background-image: url(../images/edit\ hover.svg);
+    transform: scale(1.3);
+    -webkit-transform: scale(1.3);
+    -moz-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    -o-transform: scale(1.3);
+}
+.contact-row-content {
+    flex: 1;
+}
+/* MARK: Create Contact Popup css*/
+.create-contact-form-popup {
+    display: none;
+    position: fixed;
+    max-height: 100%;
+    left: 0%;
+    top: 5%;
+    right: 0%;
+    z-index: 1;
+    overflow: scroll;
+    border: 1px solid white;
+    border-radius: 2%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.form-container {
+    padding: 20px;
+    background-color: #FFFFFF;
+    height: fit-content;
+}
+/* Grid Wrapper and styles for all inputs, selects and imgs */
+.grid-wrapper {
+    display: grid;
+    grid-template-areas:
+        "form-img form-header form-header "
+        "name-icon surname-input surname-input "
+        ". lastname-input lastname-input"
+        "phone-icon phone-type-input phone-type-input"
+        ".  country-code-input phone-number-input"
+        "address-icon address-type-input  . "
+        ". street-name-input house-number-input"
+        ".  zip-input city-input"
+        ".  country-input country-input"
+        "email-icon  email-type-input . "
+        ". email-input email-input "
+        "bday-icon bday-input bday-input"
+        "note-icon  note-input note-input"
+        "submitButton submitButton submitButton"
+        "cancelButton  cancelButton cancelButton";
+    grid-template-columns: 0.2fr 0.2fr 0.5fr;
+    align-items: center;
+    grid-gap: 10px;
+}
+.form-container img {
+    height: 40px;
+    width: 40px;
+}
+.form-container input, select {
+    border: 1px solid #EEEEEE;
+    border-radius: 5px;
+    background: #EEEEEE;
+    height: 40px;
+    box-shadow: 0 1px 0 1px rgba(0, 0, 0, .04);
+}
+.form-container input{
+    text-indent: 15px;
+}
+.form-container input:focus {
+    background-color: #ddd;
+    outline: none;
+}
+/* Grid area for each element*/
+.form-img {
+    grid-area: form-img;
+}
+.form-header {
+    grid-area: form-header;
+}
+.name-icon {
+    grid-area: name-icon;
+}
+.surname-input {
+    grid-area: surname-input;
+}
+.lastname-input {
+    grid-area: lastname-input;
+}
+.phone-icon {
+    grid-area: phone-icon;
+}
+.phone-type-input {
+    grid-area: phone-type-input;
+}
+.country-code-input {
+    grid-area: country-code-input;
+}
+.phone-number-input {
+    grid-area: phone-number-input;
+}
+.address-icon {
+    grid-area: address-icon;
+}
+.address-type-input {
+    grid-area: address-type-input;
+}
+.street-name-input {
+    grid-area: street-name-input;
+}
+.house-number-input {
+    grid-area: house-number-input;
+}
+.zip-input {
+    grid-area: zip-input;
+}
+.city-input {
+    grid-area: city-input;
+}
+.country-input {
+    grid-area: country-input;
+}
+.email-icon {
+    grid-area: email-icon;
+}
+.email-type-input {
+    grid-area: email-type-input;
+}
+.email-input {
+    grid-area: email-input;
+}
+.bday-icon {
+    grid-area: bday-icon;
+}
+.bday-input {
+    grid-area: bday-input;
+}
+.note-icon {
+    grid-area: note-icon;
+}
+
+.note-input {
+    grid-area: note-input;
+}
+/* btn styling*/ 
+.btn {
+    background-color: var(--darkblue);
+    color: var(--off-white);
+    padding: 12px 20px;
+    border: 1px solid var(--darkblue);
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    outline: none;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+    -moz-transition: 0.3s ;
+    -webkit-transition: 0.3s ;
+    -o-transition: 0.3s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.submit{
+    grid-area: submitButton;
+}
+.cancel {
+    background-color: #cc0000;
+    grid-area: cancelButton;
+    border-color: #cc0000;
+    outline: none;
+}
+.btn:hover {
+    color: var(--darkblue);
+    background-color: var(--off-white);
+}
+.cancel:hover{
+    color: #cc0000;
+}
+/* MARK: Footer css*/
+.credit-footer {
+    text-align: center;
+}
+/* MARK: Media Queries for responsive/adaptive Design*/
+/* Tablets and Desktop: */
+@media only screen and (min-width: 768px) {
+    .cards-container {
+        grid-template-columns: 1fr 1fr;
+    }
+    .header-container {
+        grid-template-areas: "header-img search-bar search-by ."
+            "header search-bar search-by .";
+        grid-template-columns: 0.5fr 1fr 0.5fr 0.25r;
+        align-items: center;
+    }
+    .search-bar {
+        margin-left: 0;
+    }
+    .create-contact-form-popup {
+        left: 10%;
+        top: 3%;
+        right: 10%;
+        bottom: 3%;
+        max-height: none;
+        background-color: none;
+    }
+    .grid-wrapper {
+        display: grid;
+        grid-template-areas:
+            "form-img form-header form-header form-header form-header form-header"
+            "name-icon surname-input surname-input lastname-input lastname-input lastname-input"
+            "phone-icon phone-type-input country-code-input phone-number-input phone-number-input phone-number-input"
+            "address-icon address-type-input street-name-input street-name-input street-name-input house-number-input"
+            ". . zip-input city-input city-input city-input"
+            ". . country-input country-input country-input country-input"
+            "email-icon  email-type-input email-input email-input email-input email-input"
+            "bday-icon bday-input bday-input bday-input bday-input bday-input"
+            "note-icon note-input note-input note-input note-input note-input"
+            ". . submitButton submitButton submitButton ."
+            ". . cancelButton cancelButton cancelButton .";
+        grid-template-columns: 0.2fr 0.2fr 0.5fr 0.5fr 0.5fr 0.5fr;
+    }
+}
+/* Desktop PCs */
+@media only screen and (min-width: 900px) {
+    .cards-container {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .header-container {
+        grid-template-areas: "header-img search-bar search-by ."
+            "header search-bar search-by .";
+        grid-template-columns: 0.5fr 1fr 0.5fr 0.25r;
+        align-items: center;
+    }
+    .create-contact-form-popup {
+        left: 20%;
+        top: 5%;
+        right: 20%;
+        bottom: 5%;
+        overflow: hidden;
+    }
+}
