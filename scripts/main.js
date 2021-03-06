@@ -30,9 +30,9 @@ data.forEach(element => {
     contactsArr.push(new Contact(name, phoneNumber, address, email, bday, element['note']))
 });
 let name = new Name('David', 'Burghoff')
-let phoneNumber = new PhoneNumber('mobile', '+49', '15778829514')
-let address = new Address('home', 'Länderallee', '22', '14052', 'Berlin', 'Germany')
-let emailAddress = new Email('private', 'burghoffdavid@gmail.com')
+let phoneNumber = new PhoneNumber('mobile', '+49', '123456789')
+let address = new Address('home', 'Streetname', '1', '14052', 'Berlin', 'Germany')
+let emailAddress = new Email('private', 'someemail@gmail.com')
 let myContact = new Contact(name, phoneNumber, address, emailAddress, '06.05.1997', 'Some short contact note')
 contactsArr.push(myContact)
 
